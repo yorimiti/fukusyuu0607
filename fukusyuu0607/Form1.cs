@@ -27,10 +27,20 @@ namespace fukusyuu0607
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            timer1.Enabled = false;
+            
             label1.Left += vx;
             label1.Top += vy;
-        
+
+            Point p = PointToClient(MousePosition);
+
+            if ((p.X>=label1.Left)
+                &&(p.X<label1.Right)
+                &&(p.Y>=label1.Top)
+                &&(p.Y<label1.Bottom)
+                )
+            {
+                timer1.Enabled = false;
+            }
          label1.Left += vx;
             label1.Top += vy;
             if (label1.Left<=0)
