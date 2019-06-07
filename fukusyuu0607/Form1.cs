@@ -12,12 +12,21 @@ namespace fukusyuu0607
 {
     public partial class Form1 : Form
     {
-        int vx =-10;
-        int vy = -10;
+        //疑似乱数
+        //ランダムのシード（種）を指定して初期化したら、
+        //それを使い続ける.
+        private static Random rand = new Random();
+        int vx =rand.Next(-10,11);
+        int vy = rand.Next(-10,11);
+        int time = 100 * 5;
 
         public Form1()
         {
             InitializeComponent();
+            //いかに、label1.Leftとlabel1.Topの座標をランダムで求めよう
+            label1.Left = rand.Next(ClientSize.Width-label1.Width);
+            label1.Top = rand.Next(ClientSize.Height-label1.Height);
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
