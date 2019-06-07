@@ -14,6 +14,7 @@ namespace fukusyuu0607
     {
         int vx =-10;
         int vy = -10;
+
         public Form1()
         {
             InitializeComponent();
@@ -21,24 +22,33 @@ namespace fukusyuu0607
 
         private void label1_Click(object sender, EventArgs e)
         {
-            label1.Left += vx;
-            label1.Top += vy;
-            if (vx>0)
-            {
-                vx = Math.Abs(vx);
-            }
-            if (vy>0)
-            {
-                vy = Math.Abs(vy);
-            }
-
-        
+          
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            timer1.Enabled = false;
             label1.Left += vx;
             label1.Top += vy;
+        
+         label1.Left += vx;
+            label1.Top += vy;
+            if (label1.Left<=0)
+            {
+                vx =-vx;
+            }
+            if (label1.Top<=0)
+            {
+                vy =-vy;
+            }
+            if (label1.Left>=ClientSize.Width-label1.Width)
+            {
+                vx=-Math.Abs(-vx);
+            }
+            if (label1.Top>=ClientSize.Height-label1.Height)
+            {
+                vy = -Math.Abs(-vy);
+            }
         }
     }
 }
